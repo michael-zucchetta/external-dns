@@ -126,6 +126,7 @@ var (
 		OCPRouterName:               "default",
 		IBMCloudProxied:             false,
 		IBMCloudConfigFile:          "/etc/kubernetes/ibmcloud.json",
+		OCIZoneScopeFilter:          "",
 	}
 
 	overriddenConfig = &Config{
@@ -233,6 +234,7 @@ var (
 		RFC2136BatchChangeSize:      100,
 		IBMCloudProxied:             true,
 		IBMCloudConfigFile:          "ibmcloud.json",
+		OCIZoneScopeFilter:          "private",
 	}
 )
 
@@ -370,6 +372,7 @@ func TestParseFlags(t *testing.T) {
 				"--rfc2136-batch-change-size=100",
 				"--ibmcloud-proxied",
 				"--ibmcloud-config-file=ibmcloud.json",
+				"--oci-zone-scope-filter=private",
 			},
 			envVars:  map[string]string{},
 			expected: overriddenConfig,
@@ -482,6 +485,7 @@ func TestParseFlags(t *testing.T) {
 				"EXTERNAL_DNS_RFC2136_BATCH_CHANGE_SIZE":       "100",
 				"EXTERNAL_DNS_IBMCLOUD_PROXIED":                "1",
 				"EXTERNAL_DNS_IBMCLOUD_CONFIG_FILE":            "ibmcloud.json",
+				"EXTERNAL_DNS_OCI_ZONE_SCOPE_FILTER":           "private",
 			},
 			expected: overriddenConfig,
 		},
