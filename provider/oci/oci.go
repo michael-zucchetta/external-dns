@@ -22,8 +22,9 @@ import (
 	"strings"
 
 	"github.com/oracle/oci-go-sdk/v65/common"
-    "github.com/oracle/oci-go-sdk/v65/dns"
-	"github.com/pkg/errors"
+  "github.com/oracle/oci-go-sdk/v65/dns"
+
+  "github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	yaml "gopkg.in/yaml.v2"
 
